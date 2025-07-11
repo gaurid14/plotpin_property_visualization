@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <!--
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!--
+      - custom css link
+    -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!--
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+<body id="top">
+<script>
+
+
+</script>
+
+
+</head>
+<!--
+  - #HEADER
+-->
+
+<header class="header" data-header>
+    <div class="container">
+
+        <a href="#" class="logo">
+            <ion-icon name="business-outline"></ion-icon>
+            property+
+        </a>
+
+        <nav class="navbar container" data-navbar>
+            <ul class="navbar-list">
+
+                <li>
+                    <a href="#" class="navbar-link" data-nav-link>Home</a>
+                </li>
+
+
+                <li>
+                    <a href="#" class="navbar-link" data-nav-link>Contact</a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('explore') }}" class="navbar-link" data-nav-link>Maps</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <a href="{{ url_for('registration') }}" class="btn btn-secondary">Signup</a>
+
+        <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
+            <ion-icon name="close-outline" aria-hidden="true" class="close-icon"></ion-icon>
+        </button>
+
+        <div class="profile-icon">
+            <!-- Your profile icon image or icon element goes here -->
+            <ion-icon name="person-circle"></ion-icon> <!-- Example using Ionicons library -->
+        </div>
+
+        <div class="sidemenu" id="sidemenu">
+            <div class="profile-section">
+                <div class="profile-icon">
+                    <!-- Your profile icon image or icon element goes here -->
+                    <ion-icon name="person-circle"></ion-icon> <!-- Example using Ionicons library -->
+                </div>
+                <p class="email">{{ email }}</p>
+            </div>
+            <ul class="sidemenu-list">
+                <li><a href="#">Buy</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{ url_for('explore') }}">Explore on maps</a></li>
+                <li><a href="{{ url_for('session.logout') }}">Logout</a></li>
+            </ul>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const profileIcon = document.querySelector('.profile-icon');
+              const sideMenu = document.querySelector('#sidemenu');
+
+              profileIcon.addEventListener('click', function () {
+                sideMenu.classList.toggle('show');
+              });
+            });
+        </script>
+    </div>
+</header>
+
+
+<main>
+    <article class="article">
+
+        <!--
+          - #HERO
+        -->
+
+        <section class="section hero" aria-label="hero">
+            <div class="container">
+
+                <div class="hero-bg">
+                    <div class="hero-content">
+
+                        <h1 class="h1 hero-title">
+                            We will help you find your <span class="span">Wonderful</span> home
+                        </h1>
+
+                        <p class="hero-text">
+                            A great platform to buy, sell and rent your properties without any agent or commisions.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="hero-form-wrapper">
+                    <div class="form-tab">
+
+                        <button class="tab-btn active" data-tab-btn>Buy</button>
+                        <button class="tab-btn" data-tab-btn>Rent</button>
+
+                    </div>
+
+                    <form action="" class="hero-form">
+
+                        <div class="input-wrapper">
+
+                            <label class="input-label">Search : *</label>
+                            <select name="Place" id="place" class="dropdown-list">
+
+                                <option value="location">Select the location</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="new_delhi">New Delhi</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="Pune">Pune</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Kolkata">Kolkata</option>
+                                <option value="Chennai">Chennai</option>
+
+                            </select>
+
+                        </div>
+                        <button type="submit" class="btn src">Search now</button>
+                        <!--                        <form action="{{ url_for('explore') }}" method="get">-->
+                        <button type="submit" class="btn onMaps">Explore on maps</button>
+
+
+                        <script>
+                            document.querySelector('.btn.onMaps').addEventListener('click', function(event) {
+                                // Check if the user is registered (you can replace this with your own logic)
+                                // var userIsRegistered = checkUserRegistration(); // Function to check user registration status
+                                var userEmail = document.querySelector('.email').textContent;
+                                var userIsLoggedIn = userEmail.trim() !== ''; // Check if email is not empty
+                                if (userIsLoggedIn) {
+                                    // User is registered, allow to proceed to the next page
+                                    // You can replace 'next_page.html' with the URL of your desired destination
+                                    window.location.href = '{{ url_for('explore') }}';
+                                } else {
+                                    // User is not registered, show an alert
+                                    alert('Sorry!! You need to register first to explore on maps...');
+                                    // Prevent the default form submission behavior
+                                    event.preventDefault();
+                                }
+                            });
+
+                            // Function to check user registration status (replace with your own logic)
+                            function checkUserRegistration() {
+
+                                return false; // Assuming the user is not registered for demonstration purposes
+                            }
+                        </script>
+
+
+                        <script>
+                            document.querySelector('.btn.src').addEventListener('click', function() {
+
+                                    var selectedLocation = document.getElementById('place').value;
+                                    if (selectedLocation == 'mumbai') {
+                                        alert('Mumbai....')
+                                        window.location.href = '{{ url_for("mumbai") }}?location=' + selectedLocation;
+                                    } else if (selectedLocation == 'new_delhi') {
+                                        window.location.href = '/{{ url_for("new_delhi") }}?location=' + selectedLocation;
+                                    } else if (selectedLocation == 'bangalore') {
+                                        window.location.href = '{{ url_for("bangalore") }}?location=' + selectedLocation;
+                                    } else {
+                                        alert('You need to select the location first....');
+                                        event.preventDefault();
+                                    }
+
+                            });
+                        </script>
+
+
+                        <style>
+                            .btn.onMaps {
+                                  background-color:  #181818; /* Blue background */
+                                  color: white; /* White text color */
+                                  padding: 2px 10px 2px 10px; /* Padding around the text (top, right, bottom, left) */
+                                  border: none; /* No border */
+                                  border-radius: 9px; /* Rounded corners */
+                                  cursor: pointer; /* Cursor style on hover */
+                                  font-size: 19px; /* Font size */
+                                  background-image: url("{{ url_for('static', filename='images/showicon.png') }}"); /* Location icon */
+                                  background-repeat: no-repeat; /* Prevent icon from repeating */
+                                  background-position: right 10px center; /* Position icon on the right side, 10px from the right and centered vertically */
+                                  background-size: 30px 30px; /* Size of the icon */
+                            }
+
+                            .btn.src {
+                                  background-color:  #181818; /* Blue background */
+                                  color: white; /* White text color */
+                                  padding: 2px 10px 2px 10px; /* Padding around the text (top, right, bottom, left) */
+                                  border: none; /* No border */
+                                  border-radius: 9px; /* Rounded corners */
+                                  cursor: pointer; /* Cursor style on hover */
+                                  font-size: 19px; /* Font size */
+                                  background-image: url("{{ url_for('static', filename='images/searchicon.png') }}"); /* Location icon */
+                                  background-repeat: no-repeat; /* Prevent icon from repeating */
+                                  background-position: right 10px center; /* Position icon on the right side, 10px from the right and centered vertically */
+                                  background-size: 30px 30px; /* Size of the icon */
+                            }
+
+
+                        </style>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--
+          - #ABOUT
+        -->
+
+
+        <!--
+          - #PROPERTY
+        -->
+
+        <section class="section property" aria-label="property">
+            <div class="container">
+
+                <h2 class="h2 section-title">Featured Properties</h2>
+
+                <p class="section-text">
+                    A great platform to buy, sell and rent your properties without any agent or commisions.
+                </p>
+
+                <ul class="property-list">
+
+                    <li>
+                        <div class="property-card">
+
+                            <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                <img src="{{ url_for('static', filename='images/property-1.jpg') }}" width="800" height="533" loading="lazy"
+                                     alt="Antariksh CHS Ltd,Silver Park, Mira Road East,Mumbai" class="img-cover">
+                            </figure>
+
+                            <button class="card-action-btn" aria-label="add to favourite">
+                                <ion-icon name="heart" aria-hidden="true"></ion-icon>
+                            </button>
+
+                            <div class="card-content">
+
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">Antariksh CHS Ltd,Silver Park, Mira Road
+                                        East,Mumbai</a>
+                                </h3>
+
+                                <ul class="card-list">
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="cube-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">8000sqf</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="bed-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">3 Beds</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="man-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">3 Baths</span>
+                                    </li>
+
+                                </ul>
+
+                                <div class="card-meta">
+
+                                    <div>
+                                        <span class="meta-title">Price</span>
+
+                                        <span class="meta-text">2 Crore</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="meta-title">Rating</span>
+
+                                        <span class="meta-text">
+
+                        <div class="rating-wrapper">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                        </div>
+
+                        <span>5.0(30)</span>
+
+                      </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="property-card">
+
+                            <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                <img src="{{ url_for('static', filename='images/property-2.jpg') }}" width="800" height="533" loading="lazy"
+                                     alt="Building behala, Sikdar Para, Behala, Kolkata" class="img-cover">
+                            </figure>
+
+                            <button class="card-action-btn" aria-label="add to favourite">
+                                <ion-icon name="heart" aria-hidden="true"></ion-icon>
+                            </button>
+
+                            <div class="card-content">
+
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">Building behala, Sikdar Para, Behala, Kolkata</a>
+                                </h3>
+
+                                <ul class="card-list">
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="cube-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">4000sqf</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="bed-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">2 Beds</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="man-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">1 Baths</span>
+                                    </li>
+
+                                </ul>
+
+                                <div class="card-meta">
+
+                                    <div>
+                                        <span class="meta-title">Price</span>
+
+                                        <span class="meta-text">1.8 Crore</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="meta-title">Rating</span>
+
+                                        <span class="meta-text">
+
+                        <div class="rating-wrapper">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                        </div>
+
+                        <span>5.0(30)</span>
+
+                      </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="property-card">
+
+                            <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                <img src="{{ url_for('static', filename='images/property-3.jpg') }}" width="800" height="533" loading="lazy"
+                                     alt="GK Vedanta,Shankar Kalat Nagar, Wakad,Pune" class="img-cover">
+                            </figure>
+
+                            <button class="card-action-btn" aria-label="add to favourite">
+                                <ion-icon name="heart" aria-hidden="true"></ion-icon>
+                            </button>
+
+                            <div class="card-content">
+
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">GK Vedanta,Shankar Kalat Nagar, Wakad,Pune</a>
+                                </h3>
+
+                                <ul class="card-list">
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="cube-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">6000sqf</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="bed-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">2 Beds</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="man-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">3 Baths</span>
+                                    </li>
+
+                                </ul>
+
+                                <div class="card-meta">
+
+                                    <div>
+                                        <span class="meta-title">Price</span>
+
+                                        <span class="meta-text">2 Crore</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="meta-title">Rating</span>
+
+                                        <span class="meta-text">
+
+                        <div class="rating-wrapper">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                        </div>
+
+                        <span>5.0(30)</span>
+
+                      </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="property-card">
+
+                            <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                <img src="{{ url_for('static', filename='images/property-4.jpg') }}" width="800" height="533" loading="lazy"
+                                     alt="Cyber Apartments,Uttam nagar west, Uttam Nagar,New Delhi" class="img-cover">
+                            </figure>
+
+                            <button class="card-action-btn" aria-label="add to favourite">
+                                <ion-icon name="heart" aria-hidden="true"></ion-icon>
+                            </button>
+
+                            <div class="card-content">
+
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">Cyber Apartments,Uttam nagar west, Uttam Nagar,New
+                                        Delhi</a>
+                                </h3>
+
+                                <ul class="card-list">
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="cube-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">5000sqf</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="bed-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">2 Beds</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="man-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">2 Baths</span>
+                                    </li>
+
+                                </ul>
+
+                                <div class="card-meta">
+
+                                    <div>
+                                        <span class="meta-title">Price</span>
+
+                                        <span class="meta-text">1 Crore</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="meta-title">Rating</span>
+
+                                        <span class="meta-text">
+
+                        <div class="rating-wrapper">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                        </div>
+
+                        <span>5.0(30)</span>
+
+                      </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="property-card">
+
+                            <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                <img src="{{ url_for('static', filename='images/property-5.jpg') }}" width="800" height="533" loading="lazy"
+                                     alt="Puppal Guda,Lakshmi Enclave Manikonda,Hyderabad" class="img-cover">
+                            </figure>
+
+                            <button class="card-action-btn" aria-label="add to favourite">
+                                <ion-icon name="heart" aria-hidden="true"></ion-icon>
+                            </button>
+
+                            <div class="card-content">
+
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">Puppal Guda,Lakshmi Enclave Manikonda,Hyderabad</a>
+                                </h3>
+
+                                <ul class="card-list">
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="cube-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">8000sqf</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="bed-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">3 Beds</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="man-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">3 Baths</span>
+                                    </li>
+
+                                </ul>
+
+                                <div class="card-meta">
+
+                                    <div>
+                                        <span class="meta-title">Price</span>
+
+                                        <span class="meta-text">1.7 Crore</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="meta-title">Rating</span>
+
+                                        <span class="meta-text">
+
+                        <div class="rating-wrapper">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                        </div>
+
+                        <span>5.0(30)</span>
+
+                      </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="property-card">
+
+                            <figure class="card-banner img-holder" style="--width: 800; --height: 533;">
+                                <img src="{{ url_for('static', filename='images/property-6.jpg') }}" width="800" height="533" loading="lazy"
+                                     alt="Richard Xavier's Colony, Neelasandra,Bangalore" class="img-cover">
+                            </figure>
+
+                            <button class="card-action-btn" aria-label="add to favourite">
+                                <ion-icon name="heart" aria-hidden="true"></ion-icon>
+                            </button>
+
+                            <div class="card-content">
+
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">Richard Xavier's Colony, Neelasandra,Bangalore</a>
+                                </h3>
+
+                                <ul class="card-list">
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="cube-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">9000sqf</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="bed-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">6 Beds</span>
+                                    </li>
+
+                                    <li class="card-item">
+                                        <div class="item-icon">
+                                            <ion-icon name="man-outline"></ion-icon>
+                                        </div>
+
+                                        <span class="item-text">3 Baths</span>
+                                    </li>
+
+                                </ul>
+
+                                <div class="card-meta">
+
+                                    <div>
+                                        <span class="meta-title">Price</span>
+
+                                        <span class="meta-text">1 Crore</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="meta-title">Rating</span>
+
+                                        <span class="meta-text">
+
+                        <div class="rating-wrapper">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                        </div>
+
+                        <span>5.0(30)</span>
+
+                      </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!--
+          - #CONTACT
+        -->
+
+        <section class="section contact" aria-label="contact">
+            <div class="container">
+
+                <h2 class="h2 section-title">Have Question ? Get in touch!</h2>
+
+                <p class="section-text">
+                    A great platform to buy, sell and rent your properties without any agent or commisions.
+                </p>
+
+                <button class="btn btn-primary">
+                    <ion-icon name="call-outline"></ion-icon>
+
+                    <span class="span">Contact us</span>
+                </button>
+
+            </div>
+        </section>
+
+
+    </article>
+</main>
+
+
+<!--
+  - #FOOTER
+-->
+
+<footer class="footer">
+
+    <div class="footer-top">
+        <div class="container">
+
+            <div class="footer-brand">
+
+                <a href="#" class="logo">
+                    <ion-icon name="business-outline"></ion-icon>
+                    property+
+                </a>
+
+                <p class="footer-text">
+                    A great platform to buy, sell and rent your properties without any agent or commisions.
+                </p>
+
+            </div>
+
+            <ul class="footer-list">
+
+                <li>
+                    <p class="footer-list-title">property+</p>
+                </li>
+
+                <li>
+                    <a href="#" class="footer-link">
+                        <ion-icon name="chevron-forward"></ion-icon>
+
+                        <span class="span">About us</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="footer-link">
+                        <ion-icon name="chevron-forward"></ion-icon>
+
+                        <span class="span">Pricing</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ url_for('login') }}" class="footer-link">
+                        <ion-icon name="chevron-forward"></ion-icon>
+
+                        <span class="span">Login</span>
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <ul class="footer-list">
+
+                <li>
+                    <p class="footer-list-title">Contact Details</p>
+                </li>
+
+                <li class="footer-item">
+                    <ion-icon name="location-outline"></ion-icon>
+
+                    <address class="address">
+
+                        Don Bosco Center of Learning
+                        <a href="#" class="address-link">View on Google map</a>
+                    </address>
+                </li>
+
+                <li class="footer-item">
+                    <ion-icon name="mail-outline"></ion-icon>
+
+                    <a href="mailto:contact@.com" class="footer-link">sakshibhawar9@gmail.com</a>
+                </li>
+
+                <li class="footer-item">
+                    <ion-icon name="call-outline"></ion-icon>
+
+                    <a href="tel:+152534468854" class="footer-link">+918657564582</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+
+
+            <ul class="social-list">
+
+                <li>
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+</footer>
+
+
+<!--
+  - #BACK TO TOP
+-->
+
+<a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+</a>
+
+
+<!--
+  - custom js link
+-->
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+<!--
+  - ionicon link
+-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

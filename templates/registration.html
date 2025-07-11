@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='images/login.jpeg') }}") no-repeat center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Add position relative to make absolute positioning work */
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
+        }
+        .registration-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .registration-box h1 {
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 32px;
+        }
+        .registration-box form {
+            margin-top: 20px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto; /* Center align the form */
+        }
+        .registration-box input {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            outline: none;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .registration-box input[type="submit"] {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            background-color: 	#181818;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .registration-box input[type="submit"]:hover {
+            background-color:	#383838;
+            transition: all 2s ease-in out;
+            border-radius: 25px;
+        }
+        .registration-box p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+        .registration-box p a {
+            color: #3897f0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="registration-box">
+        <h1>REGISTER</h1>
+        {% if error %}
+        <div style="color: red; margin-bottom: 15px;">{{ error }}</div>
+        {% endif %}
+        <form action="/registration" method="post">
+            <input type="text" name="full_name" placeholder="Full Name" required>
+            <input type="tel" name="contact" pattern="[0-9]{10}" title="Contact number must be 10 digits" placeholder="Contact" required>
+            <input type="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" placeholder="Email" required>
+<!--            <input type="text" name="create_username" placeholder="Create Username" required>-->
+            <input type="password" name="create_password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" placeholder="Create Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <input type="submit" value="Register" >
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+    </div>
+</body>
+</html>
