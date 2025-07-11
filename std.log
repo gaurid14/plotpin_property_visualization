@@ -1,0 +1,18 @@
+2024-02-28 19:54:55,523  * Debugger is active!
+2024-02-28 19:54:55,553  * Debugger PIN: 125-790-509
+2024-02-28 19:54:55,659 192.168.0.105 - - [28/Feb/2024 19:54:55] "GET /login HTTP/1.1" 200 -
+2024-02-28 19:54:55,666 192.168.0.105 - - [28/Feb/2024 19:54:55] "GET /home HTTP/1.1" 200 -
+2024-02-28 19:54:55,750 192.162024-02-28 20:12:29,355  * Restarting with watchdog (windowsapi)
+jpeg HTTP/1.1[0m" 304 -
+2024-02-28 19:54:57,899 192.168.0.105 - - [28/Feb/2024 19:54:57] "GET /home HTTP/1.1" 200 -
+2024-02-28 19:54:57,964 192.168.0.105 - - [28/Feb/2024 19:54:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-02-28 19:54:57,964 192.168.0.105 - - [28/Feb/2024 19:54:57] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+2024-02-28 19:54:57,984 192.168.0.105 - - [28/Feb/2024 19:54:57] "[36mGET /static/images/hero-bg.jpg HTTP/1.1[0m" 304 -
+2024-02-28 19:54:58,015 192.168.0.105 - - [28/Feb/2024 19:54:58] "[36mGET /static/images/about-banner.jpg HTTP/1.1[0m" 304 -
+2024-02-28 19:56:47,964 192.168.0.105 - - [28/Feb/2024 19:56:47] "[36mGET /static/images/property-1.jpg HTTP/1.1[0m" 304 -
+2024-02-28 19:56:47,964 192.168.0.105 - - [28/Feb/2024 19:56:47] "[36mGET /static/images/property-2.jpg HTTP/1.1[0m" 304 -
+2024-02-28 19:56:47,964 192.168.0.105 - - [28/Feb/2024 19:56:47] "[36mGET /static/images/property-3.jpg HTTP/1.1[0m" 304 -
+2024-02-28 20:12:27,772  * Detected change in 'C:\\Users\\gauri\\IdeaProjects\\Real Estate Management\\flaskr\\map\\trending_property.py', reloading
+2024-02-28 20:12:27,776  * Detected change in 'C:\\Users\\gauri\\IdeaProjects\\Real Estate Management\\flaskr\\map\\trending_property.py', reloading
+2024-02-28 20:12:27,777  * Detected change in 'C:\\Users\\gauri\\IdeaProjects\\Real Estate Management\\flaskr\\map\\trending_property.py', reloading
+2024-02-28 20:12:27,779  * Detected change in 'C:\\Users\\gauri\\IdeaProjects\\Real Estate Management\\flaskr\\map\\trending_property.py', reloading

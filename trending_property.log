@@ -1,0 +1,32 @@
+2024-02-29 18:10:41,683 ID: 9580, ADDRESS: Maharashtra Co-Operative Housing Society,Maharashtra Co-Operative Housing Society, Yerawada,Pune, LATITUDE: 18.5183657, LONGITUDE: 73.8736202
+2024-02-29 18:10:41,683 ID: 5342, ADDRESS: Devasandra, Mathikere,Bangalore,Devasandra, Mathikere,Bangalore, LATITUDE: 13.0328884, LONGITUDE: 77.557374
+2024-02-29 18:10:41,683 ID: 1380, ADDRESS: Casagrand Zenith,Krishnaveni Nagar, Medavakkam,Chennai, LATITUDE: 12.9179854, LONGITUDE: 80.1888547
+2024-02-29 18:10:41,683 ID: 6555, ADDRESS: Diamond Apartment,Shammi Nagar, Dharavi,Mumbai, LATITUDE: 19.0407158, LONGITUDE: 72.8579262
+2024-02-29 18:10:41,683 ID: 8958, ADDRESS: Laxmi Green County,Kondhawe-Dhawade, Pune, LATITUDE: 18.5138211, LONGITUDE: 73.5934044
+2024-02-29 18:10:41,683 ID: 5483, ADDRESS: Raghavendra Colony, Chamrajpet,Bangalore,Raghavendra Colony, Chamrajpet,Bangalore, LATITUDE: 13.0645499, LONGITUDE: 77.5275223
+2024-02-29 18:10:41,683 ID: 11493, ADDRESS: Block KG 2,Block M, Vikaspuri,New Delhi,Block KG 2,Block M, Vikaspuri,New Delhi, LATITUDE: 28.5434693, LONGITUDE: 77.1242076
+2024-02-29 18:10:41,683 ID: 2260, ADDRESS: Tata Value Homes New Haven Bengaluru,Nelamangala, Bangalore, LATITUDE: 13.0926169, LONGITUDE: 77.3951571
+2024-02-29 18:10:41,683 ID: 4106, ADDRESS: Vaishnavi building,8th Block, Jayanagar,Bangalore,Vaishnavi building,8th Block, Jayanagar,Bangalore, LATITUDE: 12.9197152, LONGITUDE: 77.5776307
+2024-02-29 18:10:41,683 ID: 7397, ADDRESS: Joyshree, Baranagar,Kolkata,Joyshree, Baranagar,Kolkata, LATITUDE: 22.64234315, LONGITUDE: 88.36997365
+2024-02-29 18:10:41,683 ID: 5028, ADDRESS: Subhash Nagar, Cottonpet,Bangalore,Subhash Nagar, Cottonpet,Bangalore, LATITUDE: 12.9747872, LONGITUDE: 77.5706466
+2024-02-29 18:10:41,684 ID: 4957, ADDRESS: Kaval Bairasandra, Bangalore,Kaval Bairasandra, Bangalore, LATITUDE: 13.0283968, LONGITUDE: 77.61151339
+2024-02-29 18:10:41,684 ID: 8938, ADDRESS: Tanish Bhakti,Charholi Kurd, Pune, LATITUDE: 26.58647495, LONGITUDE: 85.46673317
+2024-02-29 18:10:41,684 ID: 10728, ADDRESS: Chanakya Place I, Bindapur,New Delhi,Chanakya Place I, Bindapur,New Delhi, LATITUDE: 28.5946775, LONGITUDE: 77.1885212
+2024-02-29 18:10:41,684 ID: 5079, ADDRESS: Meenakshi Layout, Kengeri,Bangalore,Meenakshi Layout, Kengeri,Bangalore, LATITUDE: 12.9546256, LONGITUDE: 77.7244484
+2024-02-29 18:10:41,684 ID: 3172, ADDRESS: Pride,Chikkathoguru Village, Bangalore, LATITUDE: 12.8930319, LONGITUDE: 77.75487396
+2024-02-29 18:10:41,684 ID: 6646, ADDRESS: Tagore Road, Santacruz West,Mumbai,Tagore Road, Santacruz West,Mumbai, LATITUDE: 19.1248524, LONGITUDE: 72.9327147
+2024-02-29 18:10:41,684 ID: 7356, ADDRESS: Siddha Galaxia,Gopalpur Gram, Rajarhat,Kolkata, LATITUDE: 22.63189815, LONGITUDE: 88.48534841
+2024-02-29 18:10:41,684 ID: 10346, ADDRESS: Sector 6C, Sector 6 Rohini,New Delhi,Sector 6C, Sector 6 Rohini,New Delhi, LATITUDE: 28.7149569, LONGITUDE: 77.115385
+2024-02-29 18:10:41,684 ID: 11352, ADDRESS: B-3/10,Block B, Vasant Vihar,New Delhi, LATITUDE: 28.567071, LONGITUDE: 77.1780515
+2024-02-29 18:10:41,684 ID: 8495, ADDRESS: Manjari Budruk, Pune,Manjari Budruk, Pune, LATITUDE: 18.5184857, LONGITUDE: 73.9774114
+2024-02-29 18:10:41,684 ID: 7432, ADDRESS: Barrackpore, Kolkata,Barrackpore, Kolkata, LATITUDE: 22.6277709, LONGITUDE: 88.3787278
+2024-02-29 18:10:41,684 ID: 4113, ADDRESS: Sundar Ram Shetty Nagar, Bilekahalli,Bangalore,Sundar Ram Shetty Nagar, Bilekahalli,Bangalore, LATITUDE: 13.0405384, LONGITUDE: 77.5588323
+2024-02-29 18:10:41,684 ID: 4345, ADDRESS: Kodihalli, Bangalore,Kodihalli, Bangalore, LATITUDE: 12.9624481, LONGITUDE: 77.6463772
+2024-02-29 18:10:41,684 ID: 7175, ADDRESS: Eden City Mahestala,Jagannathgarh, Mahheshtala,Kolkata,Eden City Mahestala,Jagannathgarh, Mahheshtala,Kolkata, LATITUDE: 22.49530535, LONGITUDE: 88.27397679
+2024-02-29 18:10:48,885  * Debugger is active!
+2024-02-29 18:10:48,901  * Debugger PIN: 125-790-509
+2024-02-29 18:10:48,995 192.168.0.105 - - [29/Feb/2024 18:10:48] "GET /login HTTP/1.1" 200 -
+2024-02-29 18:10:49,023 192.168.0.105 - - [29/Feb/2024 18:10:49] "[36mGET /static/images/login.jpeg HTTP/1.1[0m" 304 -
+2024-02-29 18:10:50,992 192.168.0.105 - - [29/Feb/2024 18:10:50] "GET /home HTTP/1.1" 200 -
+2024-02-29 18:10:51,035 192.168.0.105 - - [29/Feb/2024 18:10:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-02-29 18:10:51,046 192.168.0.105 - - [29/Feb/2024 18:10:51] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
