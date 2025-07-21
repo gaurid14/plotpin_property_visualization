@@ -25,5 +25,5 @@
 - **Python**  
 - **Flask**  
 - **Dash**   
-- **SQLite*** 
+- **SQLite**
 - **HTML / CSS**  
